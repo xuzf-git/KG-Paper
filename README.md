@@ -16,5 +16,5 @@
 1. Scalable Zero-shot Entity Linking with Dense Entity Retrieval
    * 论文地址：[https://arxiv.org/abs/1911.03814](https://arxiv.org/abs/1911.03814)  (EMNLP 2020)
    * 代码实现：[https://github.com/facebookresearch/BLINK](https://github.com/facebookresearch/BLINK)
-   * 笔记链接：[BLINK: Scalable Zero-shot Entity Linking with Dense Entity Retrieval](./entity-linking/BLINK: Scalable Zero-shot Entity Linking with Dense Entity Retrieval.md)
+   * 笔记链接：[ Scalable Zero-shot Entity Linking with Dense Entity Retrieval](./entity-linking/Scalable Zero-shot Entity Linking with Dense Entity Retrieval.md)
 
