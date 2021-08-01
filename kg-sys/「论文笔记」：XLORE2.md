@@ -2,6 +2,8 @@
 
 ## Large-scale Cross-lingual Knowledge Graph Construction and Application
 
+![](https://i.loli.net/2021/07/30/jXPinBdAf5wk8OV.png)
+
 ## ABSTRACT
 
 XLORE2 有423974个跨语言链接。相比于XLORE增加了更多的跨语言知识链接、跨语言属性匹配、细粒度类型推断。设计了一个实体链接系统证明了XLORE2的有效性。
