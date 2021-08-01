@@ -1,0 +1,103 @@
+# 面向零样本学习的可扩展实体链接方法
+
+## Scalable Zero-shot Entity Linking with Dense Entity Retrieval
+
+论文链接：[https://arxiv.org/abs/1911.03814](https://arxiv.org/abs/1911.03814)
+
+代码地址：[https://github.com/facebookresearch/BLINK](https://github.com/facebookresearch/BLINK)
+
+日期：EMNLP 2020
+
+## ABSTRACT
+
+论文提出了一种面向零样本学习的可扩展实体链接方法。该方法思路简单（不需要复杂的实体结构和人工设计数据）却在零样本和非零样本的数据集上取得了很大的进步。
+
+主要思路为将实体链接分为两个步骤：
+
+1. 检索候选实体：使用 bi-encoder 将实体提及（文档或句子中需要被链接的词语，下文以 “mention” 指称）和实体描述（知识库中的实体，下文以“entity”指称）映射到一个低维空间。在此低维稠密的语义空间中，根据相似度获取候选实体（下文以“candidate”指称）
+2. 候选实体排序：使用 cross-encoder 对每个candidate entity 描述和 mention 文本的连接进行打分，选出最优的实体。
+
+在效率上，bi-encoder 进行候选实体检索速度非常快（在 2 ms 内检索 590万个candidate），cross-encoder 耗时较长，但也可以通过知识蒸馏迁移到 bi-encoder 上。
+
+> 所谓的零样本学习（zero-shot）就是测试集中要预测出的实体是从未在训练集中出现的，即训练知识库和测试知识库是分离的。
+
+
+
+## 1 Method
+
+![image-20210801111522401](https://i.loli.net/2021/08/01/IstmxBy4KofRNbz.png)
+
+### 1.1 Bi-encoder：
+
+bi-encoder 是两个独立的 BERT Transformer，将 mention context 和 entity description 分别编码成低维向量。再使用向量点积计算 mention 和 entity 的相似性，找出最近的 k 个 entity 作为 candidate，具体细节如下：
+
+1. **bi-encoder 架构**可以表示成以下形式
+
+$$
+y_m = red(T_1(\tau_m)) \\
+y_e = red(T_2(\tau_e))
+$$
+
+​	其中 $\tau_m$、 $\tau_e$ 分别为 mention context 和 entity 的表示。$T_1$、$T_2$ 为两个独立的 transformers，$red(*)$ 表示将 transformers 输出的向量序列映射为单个向量的函数，这里将 $red(*)$ 函数取为 $[CLS]$ 的向量值。
+
+2. **mention context 建模**成如下格式：
+
+$$
+\tau_m = [CLS] \quad ctxt_l \quad [Ms] \quad mention \quad [Me] \quad ctxtr \quad [SEP]
+$$
+
+​	即将 mention 用特殊标记从文本中标记出来，实验发现句子长度在 32 个词语的时候效果最佳。
+
+3. **entity 建模**成如下格式：
+
+$$
+\tau_e = [CLS] \quad title \quad [ENT] \quad description \quad [SEP]
+$$
+
+4. **计算相似度** ：使用点积计算相似度。对于 entity  $e_i$​​​​ 和 mention $m$​ 的相似度定义如下：
+   $$
+   s(m, e_i) = y_m \cdot y_e
+   $$
+
+5. **训练**：每个 batch 由正确的 entity 和若干个随机采样的 entity 组成，优化的目标就是最大化每个 batch 中正确 entity 相对于其他实体的 score。在 B 个 pairs 的 batch 中，每个 pair 的 Loss 可以由以下式子计算：
+   $$
+   L(m_i, e_i) = −s(m_i, e_i) + log \sum_{j=1}^B exp(s(m_i, e_j))
+   $$
+   随机采样的 entity 包含两种：in-batch negatives + hard negatives。其中 in-batch negatives 是随机采样的，hard negatives 是根据训练过程中 top10 被选中的实体给出的。这种方法能提高训练的时间和空间复杂度。
+
+6. **推理** ：entity 的 encoder 表示 $y_e$​​​​ 可以预先计算出并缓存，在推理时只需要计算 mention 的表示，并在已有的 entity 表示中进行最近邻搜索（使用 FAISS 工具，）。
+
+### 1.2 cross-encoder
+
+1. **cross-encoder 编码**：是 transformer 将 mention context 和 candidate description 拼接的内容进行编码，可以表示成以下形式：
+
+$$
+y_{m,e} = red(T_{cross}(\tau_{m,e}))
+$$
+
+​	其中 $\tau_{m,e}$ 表示 mention context 和 entity representation 的连接（除去 entity representation 的 $[CLS]$ )
+
+2. **Scoreing**：通过线性层对计算每个 mention-candidate pair 打分
+   $$
+   S_{cross}(m, e) = y_{m,e}W
+   $$
+
+3. **训练**：同 bi-encoder，优化目标为最大化每个 batch 中正确 entity 相对于其他 candidate 的 $S_{cross}$​。batch 的组成与bi-encoder 相同。
+
+## 2 Conclusion
+
+实验：
+
+​	测试了 TACKBP-2010、WikilinksNED Unseen-Mentions、Zero-shot Entity Linking 三个 benchmark 上进行了测试，测试结果为：在 Wikipedia 进行预训练，再在 具体数据集上 fine-tune 能达到最好的效果；第一阶段检索的 candidate 为 10 时，recall 和 precision 能达到一定的平衡。
+
+总结：
+
+1. 只通过简单的文本描述，就能超越以往精心设计的 entity name dictionaries 、link popularity 等特征
+2. 达到了 zero-shot benchmark的 SOTA 水平，相比于2019年的 Wikia corpus 提高了6个百分点，WikilinksNED Unseen-Mentions 提高了7个百分点
+
+未来可做的工作：
+
+1. 引入 entity type、entity graph 等信息。
+2. 将该方法应用到其他领域或语言。
+3. 构建 mention detection 和 entity linking 的联合模型。
+
