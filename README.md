@@ -11,6 +11,13 @@
 
 ## 2 实体链接
 
+### 2021 年
+
+1. autoregressive entity retrieval
+   * 论文地址：[https://arxiv.org/abs/2010.00904](https://arxiv.org/abs/2010.00904) (ICLR 2021)
+   * 代码地址：[https://github.com/facebookresearch/GENRE](https://github.com/facebookresearch/GENRE)
+   * 笔记链接：[utoregressive entity retrieval](./entity-linking/自回归实体检索.md)
+
 ### 2020 年
 
 1. Scalable Zero-shot Entity Linking with Dense Entity Retrieval
