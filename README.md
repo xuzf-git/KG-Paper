@@ -17,6 +17,10 @@
    * 论文地址：[https://arxiv.org/abs/2010.00904](https://arxiv.org/abs/2010.00904) (ICLR 2021)
    * 代码地址：[https://github.com/facebookresearch/GENRE](https://github.com/facebookresearch/GENRE)
    * 笔记链接：[utoregressive entity retrieval](./entity-linking/自回归实体检索.md)
+2. CHOLAN: A Modular Approach for Neural Entity Linking on Wikipedia and Wikidata
+   * 论文地址：[https://arxiv.org/abs/2101.09969](https://arxiv.org/abs/2101.09969) (EACL 2021)
+   * 代码地址：[https://github.com/ManojPrabhakar/CHOLAN](https://github.com/ManojPrabhakar/CHOLAN)
+   * 笔记链接：[cholan a modular approach for neural entity linking on wikipedia and wikidata](./entity-linking/CHOLAN-一种基于Wikipedia和Wikidata的模块化实体链接方法.md)
 
 ### 2020 年
 
