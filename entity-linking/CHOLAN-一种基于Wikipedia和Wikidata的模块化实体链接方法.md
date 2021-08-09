@@ -46,7 +46,7 @@
 
 ## 3 方法
 
-![image-20210809085752115](../../../../../Pictures/typora-imgs/image-20210809085752115.png)
+![image-20210809085752115](https://i.loli.net/2021/08/09/nzAcPC6YGBi2Qqy.png)
 
 ### 3.1 Mention detection
 
