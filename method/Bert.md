@@ -14,6 +14,10 @@ BERT (**B**idirectional **E**ncoder **R**epresentations from **T**ransformers) �
 
 BERT 通过使用受完形填空任务启发的 Mask Language Model （MLM）缓解了先前模型的单向性约束问题。MLM 随机 mask 掉一些输入文本中的 token，然后根据剩下的上下文预测 masked 的 token。除了 Mask Language Model，作者还提出了 Next Sequence Predict 任务，来联合训练文本对表示。
 
+BERT 与 GPT、ELMo 的对比如下图所示：
+
+![image-20210810192226030](https://i.loli.net/2021/08/10/snz9JahgTMxdZSD.png)
+
 BERT 贡献在于：
 
 1. 证明了双向预训练对于语言表示模型的重要性
@@ -124,8 +128,6 @@ feature-based 的方法是从预训练模型中提取固定的特征，不对具
 ![image-20210810165216530](https://i.loli.net/2021/08/10/RdhnJMUAV2fELeI.png)
 
 结果说明：无论是否进行微调，Bert 模型都是有效的。
-
-
 
 ## 5 总结
 
