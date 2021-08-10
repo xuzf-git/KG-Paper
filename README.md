@@ -29,3 +29,10 @@
    * 代码实现：[https://github.com/facebookresearch/BLINK](https://github.com/facebookresearch/BLINK)
    * 笔记链接：[ Scalable Zero-shot Entity Linking with Dense Entity Retrieval](./entity-linking/面向零样本学习的可扩展实体链接方法.md)
 
+## 3 Method
+
+1. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
+   * 论文地址：[https://arxiv.org/abs/1810.04805](https://arxiv.org/abs/1810.04805)
+   * 代码实现：[https://github.com/google-research/bert](https://github.com/google-research/bert)
+   * 笔记链接：[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](./method/Bert.md)
+
