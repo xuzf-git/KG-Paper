@@ -34,14 +34,14 @@
 
 **candidate generate**
 
-> 有四类主流方法：1. 预定义的候选实体集合；2. 字典查询（字典通过统计知识库关联别名构建）；3. 经验概率实体图，$p(m|e)$​;；4. 通过使用Wikidata 的实体标签、关联别名等数据扩展构建局部知识图
+> 有四类主流方法：1. 预定义的候选实体集合；2. 字典查询（字典通过统计知识库关联别名构建）；3. 经验概率实体图，$p(m|e)$​;；4. 通过使用 Wikidata 的实体标签、关联别名等数据扩展构建局部知识图
 
 **End2End EL**
 
 > * 2016 年：图模型。 J-nerd: joint named entity recogni- tion and disambiguation with rich linguistic features.
 >
 > * 2018 年：使用 Bi-LSTM 模型进行 MD，通过计算 mention detection embedding 和 candidate description 的相似度进行消歧，其中使用了预定义的 candidate 集合。 End-to-end neural entity linking.
-> * 2019 年：使用 BERT 模型对三个子任务联合建模。Investigating entity knowl- edge in bert with simple neural end-to-end en- tity linking
+> * 2019 年：使用 BERT 模型对三个子任务联合建模。Investigating entity knowledge in bert with simple neural end-to-end entity linking
 > * 2020 年：使用 transformer 模型实现了三个子任务；基于启发式模型进行消歧；对于MD、ED 训练神经网络，并使用别名生成实体。
 
 ## 3 方法
@@ -78,4 +78,3 @@
 作者在 Wikidata 和 Wikipedia 两个知识库上对 baseline 进行了对比，CHOLAN 超过了以往的 SOTA 模型，同时作者分别在这两个KG上对 Candidate generation 和 entity dismbiguation 进行了消融实验。结果证明，选择更优的 candidate set 以及在消歧阶段引入 entity description 和 mention context 能显著提高模型性能。
 
 改进空间：对于候选实体生成，可以使用 [Zero- shot entity linking with dense entity retrieval. 2019](https://blog.csdn.net/qq_43586043/article/details/119303780) 提出的 bi-encoder 的方法。
-
