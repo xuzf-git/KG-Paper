@@ -21,6 +21,9 @@
    * 论文地址：[https://arxiv.org/abs/2101.09969](https://arxiv.org/abs/2101.09969) (EACL 2021)
    * 代码地址：[https://github.com/ManojPrabhakar/CHOLAN](https://github.com/ManojPrabhakar/CHOLAN)
    * 笔记链接：[cholan a modular approach for neural entity linking on wikipedia and wikidata](./entity-linking/CHOLAN-一种基于Wikipedia和Wikidata的模块化实体链接方法.md)
+3. Neural Entity Linking A Survey of Models Based on Deep Learning
+   * 论文地址：[https://arxiv.org/abs/2006.00575](https://arxiv.org/abs/2006.00575)
+   * 笔记链接：[Neural Entity Linking A Survey of Models Based on Deep Learning.md](./entity-linking/Neural-Entity-Linking-A-Survey-of-Models-Based-on-Deep-Learning.md)
 
 ### 2020 年
 
