@@ -3,7 +3,6 @@
 论文地址：[https://arxiv.org/abs/1810.04805](https://arxiv.org/abs/1810.04805)
 
 代码地址：[https://github.com/google-research/bert](https://github.com/ google-research/bert.)
-
 ## Abstract
 
 BERT (**B**idirectional **E**ncoder **R**epresentations from **T**ransformers) 在未标记的文本上进行预训练，调节各个层的参数，学习上下文表示。因此只需要增加一个输出层进行微调，就能在多个任务上达到 SOTA 水平。
@@ -28,7 +27,7 @@ BERT 贡献在于：
 
 BERT 模型有两个步骤：预训练、微调。预训练时，模型在不同的预训练任务中基于未标记数据进行训练；微调时，先使用预训练模型的参数初始化 BERT 模型，再在特定任务的标注数据上对参数进行微调。以问答为例，如下图所示：
 
-![截屏2021-08-09 下午8.12.50](https://i.loli.net/2021/08/10/uHClQGPEjbV5v2D.png)
+![截屏2021-08-09 下午8.12.50](https://i.loli.net/2021/08/10/uHClQGPEjbV5v2D.png "截屏2021-08-09 下午8.12.50")
 
 `[CLS]` 是每个输入示例开头的特殊标记；`[SEP]` 是一个特殊的标记用于区分 question/answer
 
@@ -38,10 +37,10 @@ BERT 的模型架构是一种多层的双向 transformer encoder，BERT 在实�
 
 定义：transformer block 的个数为 $L$ ; hidden 大小为 $H$ ; self-attentions head 的个数为 $A$. 作者主要展示了两种规模的 BERT 模型：
 
-| model          | $L$  | $H$  | $A$  |
-| :------------- | ---- | ---- | ---- |
-| $BERT_{BASE}$  | 12   | 768  | 12   |
-| $BERT_{LARGE}$ | 24   | 1024 | 16   |
+| model          | $L$ | $H$  | $A$ |
+|----------------|-----|------|-----|
+| $BERT_{BASE}$  | 12  | 768  | 12  |
+| $BERT_{LARGE}$ | 24  | 1024 | 16  |
 
 **输入输出表示**
 
@@ -101,7 +100,7 @@ GLUE (General Language Understanding Evaluation) 是多个 NLP 任务的集合�
 
 结果如下：
 
-![image-20210810163455973](https://i.loli.net/2021/08/10/XVt8TGd5DxmypnU.png)
+![image-20210810163455973](https://i.loli.net/2021/08/10/XVt8TGd5DxmypnU.png "image-20210810163455973")
 
 如果采用像 ELMo 那样训练 LTR 和 RTL 模型，再对结果进行拼接，有以下缺点：
 
@@ -135,4 +134,3 @@ feature-based 的方法是从预训练模型中提取固定的特征，不对具
 
 1. 成功实践了 pre-training + fine-tuning 的深度学习范式；
 2. 发掘了在 NLP 中“深度双向架构”在预训练任务中的重要意义；
-

@@ -218,3 +218,4 @@ ERNIE 用一个知识编码器（K-Encoder）扩展了 BERT 的架构，该编�
 1. 具有 candidate generation 步骤的 End-to-end models
 2. 零样本方法进一步发展来应对新型的实体：结合 NIL 预测、全局实体一致性、联合ER的EL系统
 3. 使用 EL 增强的语言模型
+

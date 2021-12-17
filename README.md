@@ -41,4 +41,3 @@
    * 论文地址：[https://arxiv.org/abs/1810.04805](https://arxiv.org/abs/1810.04805)
    * 代码实现：[https://github.com/google-research/bert](https://github.com/google-research/bert)
    * 笔记链接：[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](./method/Bert.md)
-
