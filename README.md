@@ -30,10 +30,17 @@
 
 ### 2020 年
 
-1. Scalable Zero-shot Entity Linking with Dense Entity Retrieval (*EMNLP 2020)*
+1. Scalable Zero-shot Entity Linking with Dense Entity Retrieval *(EMNLP 2020)*
    * 论文地址：[https://arxiv.org/abs/1911.03814](https://arxiv.org/abs/1911.03814)  
    * 代码实现：[https://github.com/facebookresearch/BLINK](https://github.com/facebookresearch/BLINK)
    * 笔记链接：[ Scalable Zero-shot Entity Linking with Dense Entity Retrieval](./entity-linking/面向零样本学习的可扩展实体链接方法.md)
+
+### 2018 年
+
+1. Improving Entity Linking by Modeling Latent Relations between Mentions *(ACL 2018)*
+   * 论文地址：[https://aclanthology.org/P18-1148/](https://aclanthology.org/P18-1148/)
+   * 代码实现：[https://github.com/lephong/mulrel-nel](https://github.com/lephong/mulrel-nel)
+   * 笔记链接：[ Improving Entity Linking by Modeling Latent Relations between Mentions](./entity-linking/Improving Entity Linking by Modeling Latent Relations between Mentions.md)
 
 ## 3 Method
 

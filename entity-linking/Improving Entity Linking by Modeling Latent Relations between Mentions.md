@@ -74,7 +74,7 @@ $$
 > 1. 作者选择单层神经网络作为 $f$ 函数(LSTM 出现严重过拟合，效果较差)。
 > 2. 因为 $\alpha_{ijk}$ 有索引 $j$ 和 $k$ 因此可以选择，按照关系$(k)$进行归一化，或者按照提及$(j)$进行归一化，归一化因子不同是这三种形式的主要区别。
 
-![image-20211216230754372](../../../../../Pictures/typora-imgs/image-20211216230754372.png)
+![image-20211216230754372](https://s2.loli.net/2021/12/17/Y7KgmrtIAPl2Fsj.png)
 
 ### 3.2 Rel-norm: Relation-wise normalization
 
@@ -149,9 +149,9 @@ $$
 
 候选实体生成：现根据先验概率选择了 30 个候选实体，保留先验最高的四个候选，再从剩下的里面选出三个 $\bold e^T(\sum_{w \in d_i}\bold w)$ 得分最高的候选，其中 $d_i$ 选提及附近的 50 个词，求他们的嵌入表示的和，在点积求相似度。
 
-![image-20211217160959214](../../../../../Pictures/typora-imgs/image-20211217160959214.png)
+![image-20211217160959214](https://s2.loli.net/2021/12/17/wAEhM9652qg7WDV.png)
 
-![image-20211217161026518](../../../../../Pictures/typora-imgs/image-20211217161026518.png)
+![image-20211217161026518](https://s2.loli.net/2021/12/17/wtbVZkmQ3q8aTcS.png)
 
 ## 5 Conclusion and Future work
 
